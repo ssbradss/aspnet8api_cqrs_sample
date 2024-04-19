@@ -1,0 +1,6 @@
+@ASPNetCoreWebApi1_HostAddress = http://localhost:5288
+
+GET {{ASPNetCoreWebApi1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

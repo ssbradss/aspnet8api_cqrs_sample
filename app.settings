@@ -1,0 +1,10 @@
+debug true
+name Auto DTO
+defaultRedirect /metadata
+features AutoQueryFeature
+AutoQueryFeature { MaxLimit: 100 }
+AutoQueryFeature.GenerateCrudServices { }
+
+# Configure below. Supported dialects: sqlite, sqlserver, postgres, mysql
+db sqlserver
+db.connection Server=localhost;Database=SampleDB;User Id=sa;Password=Deha@2024;MultipleActiveResultSets=True;
