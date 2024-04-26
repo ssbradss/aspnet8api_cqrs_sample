@@ -1,0 +1,169 @@
+﻿@page
+@model DetailModel
+
+<style>
+    .sticky-column {
+        position: sticky;
+        right: 0;
+        z-index: 1;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row mb-5">
+        <div class="col-sm-8 text-start">
+            <h3>@Model.Item.TestField1</h3>
+        </div>
+        <div class="col-sm-4 text-end">
+            <button class="btn btn-warning text-white">Đóng băng tài khoản</button>
+            <button class="btn btn-danger">Khóa tài khoản</button>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <span class="me-3">Mã khách hàng: </span>
+                <span class="text-primary">A-200528317</span>
+            </div>
+            <div class="col-sm-4">
+                <span class="me-3">Trạng thái hoạt động</span>
+                <span class="text-primary">Đang hoạt động</span>
+            </div>
+            <div class="col-sm-4">
+                <span class="me-3">Loại khách hàng</span>
+                <span class="text-primary">OFFLINE</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <span class="me-3">Ngày tạo: </span>
+                <span class="text-primary">@Model.Item.TestField1</span>
+            </div>
+            <div class="col-sm-4">
+                <span class="me-3">Ngày chỉnh sửa cuối:</span>
+                <span class="text-primary">@Model.Item.TestField1</span>
+            </div>
+            <div class="col-sm-4">
+                <span class="me-3">Kênh tạo:</span>
+                <span class="text-primary">@Model.Item.TestField1</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <span class="me-3">Người tạo:</span>
+                <span class="text-primary">A-200528317</span>
+            </div>
+            <div class="col-sm-4">
+                <span class="me-3">Người chỉnh sửa cuối:</span>
+                <span class="text-primary">Đang hoạt động</span>
+            </div>
+            <div class="col-sm-4">
+                <span class="me-3 text-primary"><i class="fa-solid fa-circle-info"></i><a href="#" class="link-primary"> Xem tất cả</a></span>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Thông tin chung</button>
+            <button class="nav-link" id="nav-hangthanhvien-tab" data-bs-toggle="tab" data-bs-target="#nav-hangthanhvien" type="button" role="tab" aria-controls="nav-hangthanhvien" aria-selected="false">Hạng thành viên</button>
+            <button class="nav-link" id="nav-donhang-tab" data-bs-toggle="tab" data-bs-target="#nav-donhang" type="button" role="tab" aria-controls="nav-donhang" aria-selected="false">Đơn hàng</button>
+            <button class="nav-link" id="nav-diemthuong-tab" data-bs-toggle="tab" data-bs-target="#nav-diemthuong" type="button" role="tab" aria-controls="nav-diemthuong" aria-selected="false">Điểm thưởng</button>
+            <button class="nav-link" id="nav-gioithieu-tab" data-bs-toggle="tab" data-bs-target="#nav-gioithieu" type="button" role="tab" aria-controls="nav-gioithieu" aria-selected="false">Giới thiệu</button>
+            <button class="nav-link" id="nav-khuyenmai-tab" data-bs-toggle="tab" data-bs-target="#nav-khuyenmai" type="button" role="tab" aria-controls="nav-khuyenmai" aria-selected="false">Khuyến mại</button>
+            <button class="nav-link" id="nav-lichsuhoatdong-tab" data-bs-toggle="tab" data-bs-target="#nav-lichsuhoatdong" type="button" role="tab" aria-controls="nav-lichsuhoatdong" aria-selected="false">Lịch sử hoạt động</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="shadow p-3 rounded mb-5">
+                <div class="mb-5">
+                    <h3>Thông tin khách hàng</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle shadow-4"
+                             style="width: 200px;" alt="Avatar" />
+                    </div>
+                    <div class="col-sm-8">
+                        @if (Model.Items != null)
+                        {
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>Họ và tên đệm</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tài khoản</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giới tính</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ngày sinh</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Số điện thoại</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quốc tịch</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CCCD</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CMND</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hộ chiếu</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nghề nghiệp</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Công ty</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chức danh</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Địa chỉ</td>
+                                        <td>@Model.Item.TestField1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <p>Không có Thông tin người dùng</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-hangthanhvien" role="tabpanel" aria-labelledby="nav-hangthanhvien-tab">...</div>
+        <div class="tab-pane fade" id="nav-donhang" role="tabpanel" aria-labelledby="nav-donhang-tab">...</div>
+        <div class="tab-pane fade" id="nav-diemthuong" role="tabpanel" aria-labelledby="nav-diemthuong-tab">...</div>
+        <div class="tab-pane fade" id="nav-gioithieu" role="tabpanel" aria-labelledby="nav-gioithieu-tab">...</div>
+        <div class="tab-pane fade" id="nav-khuyenmai" role="tabpanel" aria-labelledby="nav-khuyenmai-tab">...</div>
+        <div class="tab-pane fade" id="nav-lichsuhoatdong" role="tabpanel" aria-labelledby="nav-lichsuhoatdong-tab">...</div>
+    </div>
+
+    
+</div>

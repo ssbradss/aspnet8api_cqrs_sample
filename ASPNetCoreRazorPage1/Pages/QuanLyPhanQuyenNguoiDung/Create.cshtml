@@ -1,0 +1,76 @@
+﻿@page
+@model CreateModel
+
+<div class="container-fluid">
+    <div class="shadow p-3 rounded mb-5">
+        <div>
+            <p class="fw-bold">Thông tin phân quyền</p>
+            <p>Nhập các thông tin chung của cài đặt phân quyền</p>
+        </div>
+        <div>
+            <form>
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        <label for="staticEmail" class="col-form-label">Tên phân quyền<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="shadow p-3 rounded mb-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <select class="form-control">
+                    <option>Chọn module chức năng</option>
+                    <!-- Thêm các option khác nếu cần -->
+                </select>
+            </div>
+            <div class="col-sm-8 text-end">
+                <button class="btn btn-primary mr-2">Hiển thị đã chọn</button>
+                <button class="btn btn-secondary">Hiển thị tất cả</button>
+            </div>
+        </div>
+
+        <div class="overflow-auto mt-4 border rounded p-2">
+            @foreach (var group in Model.permissionGroups)
+            {
+                <div class="permission-group mb-3">
+                    <div class="group-header">
+                        <button class="btn btn-outline-secondary btn-sm rounded-0 me-2">
+                            @if (Model.groupStates.ContainsKey(group.Name) && Model.groupStates[group.Name])
+                            {
+                                <i class="fas fa-minus"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-plus"></i>
+                            }
+                        </button>
+                        @group.Name
+                    </div>
+                    <div class="ms-5 content-block">
+                        <!-- Block chứa nút chọn tất cả -->
+                        <div class="text-link">
+                            <a href="#" >Chọn tất cả</a> / <a href="#">Bỏ chọn tất cả</a>
+                        </div>
+                    </div>
+                    @if (Model.groupStates.ContainsKey(group.Name) && Model.groupStates[group.Name])
+                    {
+                        <div class="group-content ms-4">
+                            @foreach (var permission in group.Permissions)
+                            {
+                                <div class="permission-item">
+                                    <input type="checkbox" class="form-check-input" /> @permission
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

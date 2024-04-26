@@ -1,0 +1,163 @@
+﻿@page "/quanlyphanquyennguoidung/create"
+@inject HttpClient Http
+
+<PageTitle>Quản lý phân quyền người dùng</PageTitle>
+
+<div class="container-fluid">
+    <div class="shadow p-3 rounded mb-5">
+        <div>
+            <p class="fw-bold">Thông tin phân quyền</p>
+            <p>Nhập các thông tin chung của cài đặt phân quyền</p>
+        </div>
+        <div>
+            <form>
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        <label for="staticEmail" class="col-form-label">Tên phân quyền<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="shadow p-3 rounded mb-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <select class="form-control">
+                    <option>Chọn module chức năng</option>
+                    <!-- Thêm các option khác nếu cần -->
+                </select>
+            </div>
+            <div class="col-sm-8 text-end">
+                <button class="btn btn-primary mr-2" @onclick="ShowSelected">Hiển thị đã chọn</button>
+                <button class="btn btn-secondary" @onclick="ShowAll">Hiển thị tất cả</button>
+            </div>
+        </div>
+
+        <div class="overflow-auto mt-4 border rounded p-2">
+            @foreach (var group in permissionGroups)
+            {
+                <div class="permission-group mb-3">
+                    <div class="group-header">
+                        <button class="btn btn-outline-secondary btn-sm rounded-0 me-2" @onclick="() => ToggleGroup(group.Name)">
+                            @if (groupStates.ContainsKey(group.Name) && groupStates[group.Name])
+                            {
+                                <i class="fas fa-minus"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-plus"></i>
+                            }
+                        </button>
+                        @group.Name
+                    </div>
+                    <div class="ms-5 content-block">
+                        <!-- Block chứa nút chọn tất cả -->
+                        <div class="text-link">
+                            <a href="#" @onclick="SelectAll">Chọn tất cả</a> / <a href="#" @onclick="DeselectAll">Bỏ chọn tất cả</a>
+                        </div>
+                    </div>
+                    @if (groupStates.ContainsKey(group.Name) && groupStates[group.Name])
+                    {
+                        <div class="group-content ms-4">
+                            @foreach (var permission in group.Permissions)
+                            {
+                                <div class="permission-item">
+                                    <input type="checkbox" class="form-check-input" /> @permission
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private Dictionary<string, bool> groupStates = new Dictionary<string, bool>();
+    private List<PermissionGroup> permissionGroups = new List<PermissionGroup>
+    {
+        new PermissionGroup
+        {
+            Name = "Quản lý chức năng",
+            Permissions = new List<string> { "Quyền A", "Quyền B", "Quyền C" }
+        },
+        new PermissionGroup
+        {
+            Name = "Quản lý tổ chức",
+            Permissions = new List<string> { "Quyền D", "Quyền E" }
+        },
+        new PermissionGroup
+        {
+            Name = "Quản lý tổ chức Mock1",
+            Permissions = new List<string> { "Quyền D", "Quyền E" }
+        },
+        new PermissionGroup
+        {
+            Name = "Quản lý tổ chức Mock2",
+            Permissions = new List<string> { "Quyền D", "Quyền E" }
+        },
+        new PermissionGroup
+        {
+            Name = "Quản lý tổ chức Mock3",
+            Permissions = new List<string> { "Quyền D", "Quyền E" }
+        },
+        new PermissionGroup
+        {
+            Name = "Quản lý tổ chức Mock4",
+            Permissions = new List<string> { "Quyền D", "Quyền E" }
+        },
+        new PermissionGroup
+        {
+            Name = "Quản lý tổ chức Mock5",
+            Permissions = new List<string> { "Quyền D", "Quyền E" }
+        },
+        new PermissionGroup
+        {
+            Name = "Quản lý tổ chức Mock6",
+            Permissions = new List<string> { "Quyền D", "Quyền E" }
+        }
+    };
+
+    private class PermissionGroup
+    {
+        public string Name { get; set; } = default!;
+        public List<string> Permissions { get; set; } = default!;
+    }
+
+    private void ToggleGroup(string groupName)
+    {
+        if (groupStates.ContainsKey(groupName))
+        {
+            groupStates[groupName] = !groupStates[groupName];
+        }
+        else
+        {
+            groupStates[groupName] = true;
+        }
+    }
+
+    private void ShowSelected()
+    {
+        // Xử lý hiển thị các nhóm chức năng đã chọn
+    }
+
+    private void ShowAll()
+    {
+        // Xử lý hiển thị tất cả các nhóm chức năng
+    }
+
+    private void SelectAll()
+    {
+        // Xử lý chọn tất cả các quyền trong nhóm đang mở
+    }
+
+    private void DeselectAll()
+    {
+        // Xử lý bỏ chọn tất cả các quyền trong nhóm đang mở
+    }
+}

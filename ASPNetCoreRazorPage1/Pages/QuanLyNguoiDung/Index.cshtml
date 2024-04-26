@@ -1,0 +1,112 @@
+﻿@page "/quanlynguoidung"
+@model IndexModel
+
+<style>
+    .sticky-column {
+        position: sticky;
+        right: 0;
+        z-index: 1;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="shadow p-3 rounded mb-5">
+        <div>
+            <h5>+ Thêm người dùng</h5>
+            <p>Thêm người dùng cùng với phân quyền để quản lý tổ chức</p>
+        </div>
+        <div>
+            <form>
+                <div class="form-group row">
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Nhập email người dùng bạn muốn thêm">
+                    </div>
+                    <div class="col-sm">
+                        <select class="form-control">
+                            <option selected>CASHIER</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>Thêm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="shadow p-3 rounded mb-5">
+        <div>
+            <h5>Quản lý người dùng</h5>
+            <p>Theo dõi, thêm hoặc xóa người dùng trong danh sách</p>
+        </div>
+        <div class="mb-5">
+            <form>
+                <div class="form-group row">
+                    <div class="col-auto">
+                        <label for="staticEmail" class="col-form-label">Email</label>
+                    </div>
+                    <div class="col-auto">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white" id="inputGroup-sizing-sm"><i class="fa fa-magnifying-glass"></i></span>
+                            <input id="staticEmail" name="staticEmail" type="text" class="form-control" placeholder="Tìm kiếm theo email">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <label for="inputPassword" class="col-form-label">Trạng thái</label>
+                    </div>
+                    <div class="col-auto">
+                        <select id="inputPassword" name="inputPassowrd" class="form-control">
+                            <option selected>Tất cả</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <label for="inputPassword" class="col-form-label">Phân quyền</label>
+                    </div>
+                    <div class="col-auto">
+                        <select class="form-control">
+                            <option selected>Chọn phân quyền</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-outline-primary">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="overflow-auto">
+            @if (Model.thongTinNguoiDung != null)
+            {
+                <table class="table">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Email</th>
+                            <th>Phân quyền</th>
+                            <th>Cấp độ</th>
+                            <th>Trạng thái</th>
+                            <th class="sticky-column text-center">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-light">
+                        @foreach (var thongTin in Model.thongTinNguoiDung)
+                        {
+                            <tr>
+                                <td>@thongTin.Email</td>
+                                <td>@thongTin.PhanQuyen</td>
+                                <td>@thongTin.CapDo</td>
+                                <td>@thongTin.TrangThai</td>
+                                <td class="sticky-column text-center bg-white border-start"><i class="fa fa-ellipsis"></i></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Không có Thông tin người dùng</p>
+            }
+        </div>
+    </div>
+</div>

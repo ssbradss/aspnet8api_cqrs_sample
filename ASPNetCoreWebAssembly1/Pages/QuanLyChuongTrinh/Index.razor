@@ -1,0 +1,90 @@
+﻿@page "/quanlychuongtrinh"
+@inject HttpClient Http
+
+<PageTitle>Quản lý chương trình</PageTitle>
+<style>
+    .sticky-column {
+        position: sticky;
+        right: 0;
+        z-index: 1;
+    }
+</style>
+<h3>QUẢN LÝ CHƯƠNG TRÌNH</h3>
+
+<div class="container-fluid">
+    <div class="shadow p-3 rounded mb-5">
+        <div>
+            <p class="fw-bold">Danh sách phân quyền người dùng</p>
+            <p>Built-in: Phân quyền được tạo bởi hệ thống và không thể chỉnh sửa</p>
+            <p>Bạn có thể tạo phân quyền người dùng mới bằng cách tạo bản sao từ những phân quyền mặc định</p>
+        </div>
+  
+        <div>
+            <table class="table table-light">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var quyen in danhSachQuyen)
+                    {
+                        <tr>
+                            <td>@quyen.STT</td>
+                            <td>
+                                <span class="me-3">
+                                    <a href="/quanlyphanquyennguoidung/create">
+                                        @quyen.Name
+                                    </a>
+                                </span>
+                                @if (quyen.IsBuiltin)
+                                {
+                                    <span class="badge bg-secondary">built-in</span>
+                                }   
+                            </td>
+                            <td>
+                                <button @onclick="() => Duplicatequyen(quyen)" class="btn btn-primary">
+                                    <i class="fas fa-copy"></i> Tạo bản sao
+                                </button>
+                                <button @onclick="() => Deletequyen(quyen)" class="btn btn-danger">
+                                    <i class="fas fa-times"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Quyen> danhSachQuyen { get; set; } = new List<Quyen>
+    {
+        new Quyen { STT = 1, Name = "Quyền 1", IsBuiltin = true },
+        new Quyen { STT = 2, Name = "Quyền 2", IsBuiltin = false },
+        new Quyen { STT = 3, Name = "Quyền 3", IsBuiltin = false },
+        // ... thêm dữ liệu mockup khác nếu cần
+    };
+
+    private class Quyen
+    {
+        public int STT { get; set; }
+        public string Name { get; set; } = default!;
+        public bool IsBuiltin { get; set; }
+    }
+
+    private void Duplicatequyen(Quyen quyen)
+    {
+        // Xử lý khi nhấn vào Tạo bản sao
+        // Chuyển sang cửa sổ khác hoặc thực hiện các logic khác
+    }
+
+    private void Deletequyen(Quyen quyen)
+    {
+        // Xử lý khi nhấn vào Xóa
+        // Thực hiện xóa quyền và cập nhật UI
+    }
+}

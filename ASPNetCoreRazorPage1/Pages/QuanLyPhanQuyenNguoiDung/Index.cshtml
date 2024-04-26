@@ -1,0 +1,67 @@
+﻿@page
+@model ASPNetCoreRazorPage1.Pages.QuanLyPhanQuyenNguoiDung.IndexModel
+@{
+    ViewData["Title"] = "Quản lý phân quyền người dùng";
+}
+
+<style>
+    .sticky-column {
+        position: sticky;
+        right: 0;
+        z-index: 1;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row mb-5">
+        <div class="col-sm-12 text-start">
+            <h3>QUẢN LÝ PHÂN QUYỀN NGƯỜI DÙNG</h3>
+        </div>
+    </div>
+
+    <div class="shadow p-3 rounded mb-5">
+        <div>
+            <p class="fw-bold">Danh sách phân quyền người dùng</p>
+            <p>Built-in: Phân quyền được tạo bởi hệ thống và không thể chỉnh sửa</p>
+            <p>Bạn có thể tạo phân quyền người dùng mới bằng cách tạo bản sao từ những phân quyền mặc định</p>
+        </div>
+
+        <div>
+            <table class="table table-light">
+                <thead class="table-secondary border-bottom-0">
+                    <tr>
+                        <th class="border-bottom-0">STT</th>
+                        <th class="border-bottom-0">Tên</th>
+                        <th class="border-bottom-0">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var quyen in Model.danhSachQuyen)
+                    {
+                        <tr>
+                            <td>@quyen.STT</td>
+                            <td>
+                                <span class="me-3">
+                                    <a href="/quanlyphanquyennguoidung/create">
+                                        @quyen.Name
+                                    </a>
+                                </span>
+                                @if (quyen.IsBuiltin)
+                                {
+                                    <span class="badge bg-secondary">built-in</span>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-copy"></i> Tạo bản sao
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-times"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

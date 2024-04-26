@@ -1,0 +1,137 @@
+﻿@page "/quanlynguoidung"
+@inject HttpClient Http
+
+<PageTitle>Quản lý người dùng</PageTitle>
+<style>
+    .sticky-column {
+        position: sticky;
+        right: 0;
+        z-index: 1;
+    }
+</style>
+@* <h1>Quản lý người dùng</h1> *@
+
+<div class="container-fluid">
+    <div class="shadow p-3 rounded mb-5">
+        <div>
+            <p class="fw-bold">+ Thêm người dùng</p>
+            <p>Thêm người dùng cùng với phân quyền để quản lý tổ chức</p>
+        </div>
+        <div>
+            <form>
+                <div class="form-group row">
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary">Thêm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="shadow p-3 rounded mb-5">
+        <div>
+            <p>Quản lý người dùng</p>
+            <p>Theo dõi, thêm hoặc xóa người dùng trong danh sách</p>
+        </div>
+        <div>
+            <form>
+                <div class="form-group row">
+                    <div class="col-sm-1">
+                        <label for="staticEmail" class="col-form-label">Email</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input id="staticEmail" name="staticEmail" type="text" class="form-control" placeholder="Tìm kiếm theo email">
+                    </div>
+                    <div class="col-sm-1">
+                        <label for="inputPassword" class="col-form-label">Trạng thái</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <select id="inputPassword" name="inputPassowrd" class="form-control">
+                            <option selected>Tất cả</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-1">
+                        <label for="inputPassword" class="col-form-label">Phân quyền</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control">
+                            <option selected>Chọn phân quyền</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="submit" class="btn">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div>
+            @if (thongTinNguoiDung != null)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Phân quyền</th>
+                            <th>Cấp độ</th>
+                            <th>Trạng thái</th>
+                            <th class="sticky-column bg-white text-center">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var thongTin in thongTinNguoiDung)
+                        {
+                            <tr>
+                                <td>@thongTin.Email</td>
+                                <td>@thongTin.PhanQuyen</td>
+                                <td>@thongTin.CapDo</td>
+                                <td>@thongTin.TrangThai</td>
+                                <td class="sticky-column bg-white text-center"><i class="fa fa-ellipsis"></i></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Không có Thông tin người dùng</p>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private ThongTinNguoiDung[]? thongTinNguoiDung;
+
+    protected override void OnInitialized()
+    {
+        thongTinNguoiDung = new ThongTinNguoiDung[]
+        {
+            new ThongTinNguoiDung{ Email = "NguoiDung1@gmail.com", PhanQuyen = "PhanQuyen1", CapDo = "1", TrangThai = "TrangThai1"},
+            new ThongTinNguoiDung{ Email = "NguoiDung2@gmail.com", PhanQuyen = "PhanQuyen2", CapDo = "2", TrangThai = "TrangThai2"},
+            new ThongTinNguoiDung{ Email = "NguoiDung3@gmail.com", PhanQuyen = "PhanQuyen3", CapDo = "3", TrangThai = "TrangThai3"},
+            new ThongTinNguoiDung{ Email = "NguoiDung4@gmail.com", PhanQuyen = "PhanQuyen4", CapDo = "4", TrangThai = "TrangThai4"}
+        };
+    }
+
+    public class ThongTinNguoiDung
+    {
+        public string? Email { get; set; }
+
+        public string? PhanQuyen { get; set; }
+
+        public string? CapDo { get; set; }
+
+        public string? TrangThai { get; set; }
+    }
+}

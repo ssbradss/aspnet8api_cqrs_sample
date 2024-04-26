@@ -5,15 +5,17 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNetCoreWebApi1", "ASPNetCoreWebApi1\ASPNetCoreWebApi1.csproj", "{978BE3DA-6F05-4F44-99EF-A2CDC61656F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNetCoreWebApi1.ApplicationLayer", "ASPNetCoreWebApi1.ApplicationLayer\ASPNetCoreWebApi1.ApplicationLayer.csproj", "{C1AD882F-9099-4D44-89CA-D4510C48DD98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNetCoreWebApi1.ApplicationLayer", "ASPNetCoreWebApi1.ApplicationLayer\ASPNetCoreWebApi1.ApplicationLayer.csproj", "{C1AD882F-9099-4D44-89CA-D4510C48DD98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNetCoreWebApi1.DomainLayer", "ASPNetCoreWebApi1.DomainLayer\ASPNetCoreWebApi1.DomainLayer.csproj", "{63EF18CA-83EE-4EC0-9BE7-89B4A8EF13F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNetCoreWebApi1.DomainLayer", "ASPNetCoreWebApi1.DomainLayer\ASPNetCoreWebApi1.DomainLayer.csproj", "{63EF18CA-83EE-4EC0-9BE7-89B4A8EF13F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNetCoreWebApi1.InfrastructureLayer", "ASPNetCoreWebApi1.InfrastructureLayer\ASPNetCoreWebApi1.InfrastructureLayer.csproj", "{0541B8BF-99FA-48E7-9DE4-E72E20B96FFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNetCoreWebApi1.InfrastructureLayer", "ASPNetCoreWebApi1.InfrastructureLayer\ASPNetCoreWebApi1.InfrastructureLayer.csproj", "{0541B8BF-99FA-48E7-9DE4-E72E20B96FFE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayer", "PresentationLayer", "{780C1B20-258D-427C-84BA-43489A8123CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNetCoreWebAssembly1", "ASPNetCoreWebAssembly1\ASPNetCoreWebAssembly1.csproj", "{A48BE118-DA33-461D-8E98-5BC24DA45492}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNetCoreWebAssembly1", "ASPNetCoreWebAssembly1\ASPNetCoreWebAssembly1.csproj", "{A48BE118-DA33-461D-8E98-5BC24DA45492}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNetCoreRazorPage1", "ASPNetCoreRazorPage1\ASPNetCoreRazorPage1.csproj", "{8C5A6F88-A6BD-4D65-9225-BFB8EDB30C2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{A48BE118-DA33-461D-8E98-5BC24DA45492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A48BE118-DA33-461D-8E98-5BC24DA45492}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A48BE118-DA33-461D-8E98-5BC24DA45492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C5A6F88-A6BD-4D65-9225-BFB8EDB30C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5A6F88-A6BD-4D65-9225-BFB8EDB30C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5A6F88-A6BD-4D65-9225-BFB8EDB30C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5A6F88-A6BD-4D65-9225-BFB8EDB30C2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{978BE3DA-6F05-4F44-99EF-A2CDC61656F9} = {780C1B20-258D-427C-84BA-43489A8123CE}
 		{A48BE118-DA33-461D-8E98-5BC24DA45492} = {780C1B20-258D-427C-84BA-43489A8123CE}
+		{8C5A6F88-A6BD-4D65-9225-BFB8EDB30C2E} = {780C1B20-258D-427C-84BA-43489A8123CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {81CE9A4D-1EC6-4448-B334-2E87FB2381C1}

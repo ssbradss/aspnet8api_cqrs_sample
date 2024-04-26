@@ -18,4 +18,13 @@
     <ProjectReference Include="..\ASPNetCoreWebApi1.ApplicationLayer\ASPNetCoreWebApi1.ApplicationLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Pages\QuanLyNguoiDung\Index.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="wwwroot\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

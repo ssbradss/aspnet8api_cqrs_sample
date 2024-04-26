@@ -1,0 +1,112 @@
+﻿@page
+@model IndexModel
+
+<style>
+    .sticky-column {
+        position: sticky;
+        right: 0;
+        z-index: 1;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row mb-5">
+        <div class="col-sm-8 text-start">
+            <h3>QUẢN LÝ KHÁCH HÀNG</h3>
+        </div>
+        <div class="col-sm-4 text-end">
+            <button class="btn btn-primary"><i class="fas fa-plus"></i>Tải lên danh sách khách hàng</button>
+            <button class="btn btn-primary"><i class="fas fa-plus"></i>Tạo khách hàng</button>
+        </div>
+    </div>
+    <div class="shadow p-3 rounded mb-5">
+        <div>
+            <form>
+                <div class="form-group row mb-5">
+                    <div class="col-sm-2">
+                        <select id="inputPassword" name="inputPassowrd" class="form-control">
+                            <option selected>Tất cả</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <input id="staticEmail" name="staticEmail" type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm">
+                    </div>
+                    <div class="col-sm-1 p-0">
+                        <label for="inputPassword" class="col-form-label">Trạng thái</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <select id="inputPassword" name="inputPassowrd" class="form-control">
+                            <option selected>Đang hoạt động</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-outline-primary">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="overflow-auto">
+            @if (Model.Items != null)
+            {
+                <table class="table table-light">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th><input type="checkbox" class="form-check-input" /></th>
+                            <th>Tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Quốc tịch</th>
+                            <th>Ngày sinh</th>
+                            <th>Ngày tạo</th>
+                            <th>Ngày cập nhật</th>
+                            <th>Người tạo</th>
+                            <th>Ngôn ngữ</th>
+                            <th>Trạng thái</th>
+                            <th>Mã khách hàng</th>
+                            <th>Giới tính</th>
+                            <th>Nguồn khách hàng</th>
+                            <th>Kênh thu nhập</th>
+                            <th>Loại khách hàng</th>
+                            <th>Mã quốc gia</th>
+                            <th>Công ty</th>
+                            <th class="sticky-column bg-white text-center">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <th><input type="checkbox" class="form-check-input" /></th>
+                                <td><a href="/quanlykhachhang/detail">@item.TestField1</a></td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td>@item.TestField1</td>
+                                <td class="sticky-column bg-white text-center"><i class="fa fa-ellipsis"></i></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Không có Thông tin người dùng</p>
+            }
+        </div>
+    </div>
+</div>
